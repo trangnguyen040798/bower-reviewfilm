@@ -34,12 +34,12 @@
                 base.$el.find("ul").first().children("li").each(function() {
                     var slide = {},
                         $this = $(this);
-                    slide.image = ($this.find("img").size() > 0) ? $this.find("img").first().attr("src") : -1;
+                    slide.image = ($this.find(".slidey-list-thumbnail").size() > 0) ? $this.find(".slidey-list-thumbnail").css('background-image').replace('url("','').replace('")','') : -1;
                     if (slide.image === -1) {
                         throw ("Structure error: item has no img tag.");
                     }
-                    slide.title = ($this.find("p.title").size() > 0) ? $this.find("p.title").first().html() : "";
-                    slide.description = ($this.find("p.description").size() > 0) ? $this.find("p.description").first().html() : "";
+                    slide.title = ($this.find(".slidey-list-title").size() > 0) ? $this.find(".slidey-list-title").first().html() : "";
+                    slide.description = ($this.find(".slidey-list-description").size() > 0) ? $this.find(".slidey-list-description").first().html() : "";
                     base.slides.push(slide);
                 });
             }
